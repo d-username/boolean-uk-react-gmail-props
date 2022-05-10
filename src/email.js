@@ -1,6 +1,9 @@
 function Email(props) {
   return (
-    <li className={`email ${props.email.read ? "read" : "unread"}`}>
+    <li
+      className={`email ${props.email.read ? "read" : "unread"}`}
+      onClick={() => props.openMail(props.email)}
+    >
       <div className="select">
         <input
           className="select-checkbox"

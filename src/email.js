@@ -2,7 +2,7 @@ function Email(props) {
   return (
     <li
       className={`email ${props.email.read ? "read" : "unread"}`}
-      onClick={() => props.openMail(props.email)}
+      onClick={() => props.setOpenedEmail(props.email)}
     >
       <div className="select">
         <input

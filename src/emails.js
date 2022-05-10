@@ -9,7 +9,7 @@ function Emails(props) {
           index={index}
           toggleRead={props.toggleRead}
           toggleStar={props.toggleStar}
-          openMail={props.openMail}
+          setOpenedEmail={props.setOpenedEmail}
         />
       ))}
     </ul>

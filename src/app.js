@@ -10,6 +10,7 @@ function App() {
   const [emails, setEmails] = useState(initialEmails);
   const [hideRead, setHideRead] = useState(false);
   const [currentTab, setCurrentTab] = useState("inbox");
+  const [inputText, setInputText] = useState("");
 
   const unreadEmails = emails.filter((email) => !email.read);
   const starredEmails = emails.filter((email) => email.starred);
@@ -39,6 +40,21 @@ function App() {
   if (currentTab === "starred")
     filteredEmails = getStarredEmails(filteredEmails);
 
+  if (inputText !== "") {
+    let newArray = [];
+    emails.forEach((email) => {
+      const emailTitleToLowerCase = email.title.toLowerCase();
+      const emailSenderToLowerCase = email.sender.toLowerCase();
+      if (
+        emailTitleToLowerCase.includes(inputText) ||
+        emailSenderToLowerCase.includes(inputText)
+      ) {
+        newArray.push(email);
+      }
+    });
+    filteredEmails = newArray;
+  }
+
   return (
     <div className="app">
       <header className="header">
@@ -54,7 +70,11 @@ function App() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input
+            className="search-bar"
+            placeholder="Search mail"
+            onChange={(e) => setInputText(e.target.value.toLowerCase())}
+          />
         </div>
       </header>
       <nav className="left-menu">

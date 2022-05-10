@@ -1,10 +1,6 @@
 function OpenedMail(props) {
   return (
     <article>
-      <div>
-        <h1>You seccussfully opened the email.</h1>
-      </div>
-
       <header>
         <div>
           <div>
